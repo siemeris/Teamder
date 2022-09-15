@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-// import teamderImg from "/workspace/Teamder/src/front/img/teamderImg.png";
 import "../../styles/home.css";
-import { Link, useParams, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { UserEdit } from "./useredit";
+import UserPhoto from "/workspace/Teamder/src/front/img/Profile.jpg"
 
 
 export const UserProfile = () => {
@@ -47,7 +47,7 @@ export const UserProfile = () => {
               <div className="card-body">
                 <div className="d-flex flex-column align-items-center text-center">
                   <img
-                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                    src= {UserPhoto}
                     alt="Admin"
                     className="rounded-circle"
                     width="150"
