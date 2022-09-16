@@ -68,25 +68,6 @@ def obtenerCurrentUser():
     }
     return jsonify(response_body), 200
 
-# @api.route('/getCurrentActivity', methods=['GET'])
-# @jwt_required()
-# def obtenerCurrentActivity():
-#     current_user_id = get_jwt_identity()
-#     user = User.query.get(current_user_id)
-#     listaActividades = User.query.filter_by(id=user.id).first().activities
-#     Actividades = list(map(lambda x: x.serialize(), response))
-#     response_body = {
-#         "Current_category": response.category,
-#         "Current_title": response.title,
-#         "Current_description": response.description,
-#         "Current_players": response.players,
-#         "Current_date": response.date,
-#         "Current_city": response.city,
-#         "Current_location": response.location,
-#         "Current_time": response.time,
-#     }
-#     return jsonify(response_body), 200
-
 @api.route('/getPostedActivities', methods=['GET'])
 @jwt_required()
 def get_posted_activities():
@@ -101,10 +82,8 @@ def get_posted_activities():
 @api.route('/getCurrentActivity/<int:index>', methods=['GET'])
 @jwt_required()
 def get_current_activity(index):
-    # request_body = request.get_json(force=True)
     current_user_id = get_jwt_identity()
     user = User.query.get(current_user_id)
-    # activity_id = index
     response = Activities.query.filter_by(id=index).first()
     response_body = {
         "Current_category": response.category,
@@ -160,7 +139,6 @@ def leave_activity():
 
     return jsonify({
         "success": "favorite deleted",
-        # "ActividadesAnotadas": list(map(lambda x: x.serialize(), listaActividades))
     }), 200
 
 @api.route('/deleteActivity', methods=['DELETE'])
@@ -195,8 +173,6 @@ def create_token():
 
     email = request.json.get("email", None)
     password = request.json.get("password", None)
-    # Consulta la base de datos por el nombre de usuario y la contraseña
-    # user = User.query.filter_by(email=email, password=password).first()
     user_id = User.query.filter_by(email=email).first().id
     user_pass = User.query.filter_by(email=email).first().password
     

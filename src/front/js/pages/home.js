@@ -5,8 +5,6 @@ import Jumbotron02 from "../../img/Jumbotron02.png";
 import { Card } from "../component/card.js";
 import { CardDetalle } from "../component/cardDetalle.js";
 import { MapComponent } from "../component/mapcomponent.jsx";
-// import LoginForm from "../component/login";
-// import SignUpPage from "../component/signup";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -23,21 +21,7 @@ export const Home = () => {
       <h1 className="text-center text-info p-2 mt-5">Activities</h1>
       <hr></hr>
       <div className="row d-flex justify-content-around">
-        
-          <CardDetalle />
-  
-        {/* <div className="col-3">
-          {" "}
-          <CardDetalle />
-        </div>
-        <div className="col-3">
-          {" "}
-          <CardDetalle />
-        </div>
-        <div className="col-3">
-          {" "}
-          <CardDetalle />
-        </div> */}
+        <CardDetalle />
       </div>
       <h1 className="text-center text-info p-2 mt-5">Near you</h1>
       <hr></hr>

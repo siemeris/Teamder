@@ -11,8 +11,12 @@ import Yoga from "../../img/Yoga.png";
 export const CardDetalle = () => {
   const { store, actions } = useContext(Context);
 
-  useEffect(() => {actions.getActivities(); store.tempList=[]; store.iconsList=[]; actions.getWeather();}, [])
-
+  useEffect(() => {
+    actions.getActivities();
+    store.tempList = [];
+    store.iconsList = [];
+    actions.getWeather();
+  }, []);
 
   const hangman = (Image) => {
     let hangmanImage = null;
@@ -44,29 +48,32 @@ export const CardDetalle = () => {
   let image = null;
   return (
     <div className="container mt-4">
-      <div className="row d-flex flex-column" style={{ height: "18rem", overflowX: "auto" }}>
+      <div
+        className="row d-flex flex-column"
+        style={{ height: "18rem", overflowX: "auto" }}
+      >
         {store.activities.map((value, index) => {
-          // store.location=value.city
-          // console.log(store.location, "store.location")
-          // actions.getWeather(value.city)
           return (
-
-            <div key={index} className="card px-1 mx-2 py-1 border border-light shadow border-4 rounded-1" style={{ height: "16rem", width: '14rem' }}>
+            <div
+              key={index}
+              className="card px-1 mx-2 py-1 border border-light shadow border-4 rounded-1"
+              style={{ height: "16rem", width: "14rem" }}
+            >
               <div className="card-body">
                 <h5 className="card-title text-center mt-1">
                   {" "}
-                  
-                    <img
+                  <img
                     src={(image = hangman(value.category))}
-                      className="card-img-top mx-2"
-                      style={{ width: "1.5rem" }}
-                      alt="group of people playing soccer"
-                    />
-                  
+                    className="card-img-top mx-2"
+                    style={{ width: "1.5rem" }}
+                    alt="group of people playing soccer"
+                  />
                   {value.category}
                 </h5>
                 <h6 className="card-subtitle mb-2 text-muted ">{value.date}</h6>
-                <h6 className="card-subtitle mb-2 text-muted">{value.location}</h6>
+                <h6 className="card-subtitle mb-2 text-muted">
+                  {value.location}
+                </h6>
                 <h6 className="card-subtitle mb-2 text-muted">{value.city}</h6>
                 <div className="text-center">
                   <img src={store.iconsList[index]}></img>
@@ -80,7 +87,7 @@ export const CardDetalle = () => {
                     id="boton usuario"
                     onClick={() => {
                       actions.joinActivity({
-                        index: value.id
+                        index: value.id,
                       });
                     }}
                   >

@@ -15,7 +15,6 @@ export const EditActivity = ({ propTitle, propDate }) => {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
 
-
   // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
   Geocode.setApiKey("AIzaSyDSDT6I4RRdO6Uk6hJt6Twp7AdEOcVer20");
 
@@ -37,66 +36,58 @@ export const EditActivity = ({ propTitle, propDate }) => {
   // Enable or disable logs. Its optional.
   Geocode.enableDebug();
 
-  useEffect(() => {    //Get latitude & longitude from address.
-    let direccion = location + "," + city
+  useEffect(() => {
+    //Get latitude & longitude from address.
+    let direccion = location + "," + city;
     Geocode.fromAddress(direccion).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
-        setLatitude(lat)
-        setLongitude(lng)
+        setLatitude(lat);
+        setLongitude(lng);
       },
       (error) => {
         console.error(error);
       }
     );
-  }, [location])
-
-  // useEffect(()=>{
-  //   actions.getCurrentActivity({index: store.index})
-  // },[])
-
+  }, [location]);
 
   const handleSubmit = (e) => {
-      if (category == '') {
-        // let category2 = store.currentActivity.Current_category
-        setCategory(store.currentActivity.Current_category)
-      }
-      if (title == '') {
-        // let category2 = store.currentActivity.Current_category
-        setTitle(store.currentActivity.Current_title)
-      }
-      if (participants == null) {
-        // let category2 = store.currentActivity.Current_category
-        setParticipants(store.currentActivity.Current_players)
-      }
-      if (date == '') {
-        // let category2 = store.currentActivity.Current_category
-        setDate(store.currentActivity.Current_date)
-      }
-      if (location == '') {
-        // let category2 = store.currentActivity.Current_category
-        setLocation(store.currentActivity.Current_location)
-      }
-      if (city == '') {
-        // let category2 = store.currentActivity.Current_category
-        setCity(store.currentActivity.Current_city)
-      }
-      if (time == '') {
-        // let category2 = store.currentActivity.Current_category
-        setTime(store.currentActivity.Current_time)
-      }
-      console.log(category, "category handlesubmit")
-      console.log(title, "title handlesubmit")
-      e.preventDefault();
-      e.target.reset();
-  }
-
+    if (category == "") {
+      // let category2 = store.currentActivity.Current_category
+      setCategory(store.currentActivity.Current_category);
+    }
+    if (title == "") {
+      // let category2 = store.currentActivity.Current_category
+      setTitle(store.currentActivity.Current_title);
+    }
+    if (participants == null) {
+      // let category2 = store.currentActivity.Current_category
+      setParticipants(store.currentActivity.Current_players);
+    }
+    if (date == "") {
+      // let category2 = store.currentActivity.Current_category
+      setDate(store.currentActivity.Current_date);
+    }
+    if (location == "") {
+      // let category2 = store.currentActivity.Current_category
+      setLocation(store.currentActivity.Current_location);
+    }
+    if (city == "") {
+      // let category2 = store.currentActivity.Current_category
+      setCity(store.currentActivity.Current_city);
+    }
+    if (time == "") {
+      // let category2 = store.currentActivity.Current_category
+      setTime(store.currentActivity.Current_time);
+    }
+    console.log(category, "category handlesubmit");
+    console.log(title, "title handlesubmit");
+    e.preventDefault();
+    e.target.reset();
+  };
 
   return (
-    <form
-      className="mx-5 mt-4"
-      onClick={handleSubmit}
-    >
+    <form className="mx-5 mt-4" onClick={handleSubmit}>
       <div className="mb-3">
         <label for="exampleInputEmail1" className="form-label">
           Category
@@ -107,8 +98,7 @@ export const EditActivity = ({ propTitle, propDate }) => {
             id="reg_userquestion"
             className="form-control"
             name="user_question"
-            // onLoad={(e) => e ? setCategory(e.target.value) : setCategory(store.currentActivity.Current_category)}
-            onChange={(e) => setCategory(e.target.value)} 
+            onChange={(e) => setCategory(e.target.value)}
           >
             <option value>Select Category </option>
             <option>Soccer</option>
@@ -118,7 +108,6 @@ export const EditActivity = ({ propTitle, propDate }) => {
             <option>Basketball</option>
             <option>Volleyball</option>
             <option>Others</option>
-
           </select>
         </div>
       </div>
@@ -131,7 +120,7 @@ export const EditActivity = ({ propTitle, propDate }) => {
           type="text"
           aria-label="default input example"
           onChange={(e) => setTitle(e.target.value)}
-          defaultValue={(store.currentActivity.Current_title)}
+          defaultValue={store.currentActivity.Current_title}
         ></input>
       </div>
       <div className="mb-3">
@@ -233,8 +222,7 @@ export const EditActivity = ({ propTitle, propDate }) => {
               latitude: latitude,
               longitude: longitude,
             });
-            actions.getActivities()
-            // actions.getPostedActivities()
+            actions.getActivities();
           }}
         >
           Save Changes

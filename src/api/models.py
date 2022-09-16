@@ -19,7 +19,6 @@ class User(db.Model):
      password = db.Column(db.String(250), nullable=False)
      mobile= db.Column(db.Integer, unique=True, nullable=True)
      address = db.Column(db.String(80), nullable=True)
-    # is_active = db.Column(db.Boolean, nullable=False)
      activities = db.relationship("Activities", secondary=takingActivity, back_populates="users")
      postedactivities = db.relationship('Activities', backref='user', lazy=True)
      def __repr__(self):
@@ -37,7 +36,6 @@ class User(db.Model):
                "password": self.password,
                "mobile": self.mobile,
                "address": self.address,
-               # "activities": self.obtain_activities()
          }
 
      def obtain_activities(self):
@@ -47,14 +45,12 @@ class Activities(db.Model):
      __tablename__ = "activities"
      id = db.Column(db.Integer, primary_key=True)
      description = db.Column(db.String(120), nullable=True)
-#     creator = db.Column(db.String(120), nullable=False)
      name= db.Column(db.String(120), nullable=False)
      category=db.Column(db.String(120), nullable=False)
      date= db.Column(db.String(120), nullable=False)
      time=db.Column(db.String(120), nullable=False)
      city = db.Column(db.String(120), nullable=False)
      location = db.Column(db.String(120), nullable=False)
-    # # weather = db.Column(db.String(120), nullable=True)
      players = db.Column(db.Integer, nullable=False)
      latitude = db.Column(db.String(120), nullable=True)
      longitude = db.Column(db.String(120), nullable=True)
@@ -67,14 +63,12 @@ class Activities(db.Model):
           return {
                "id": self.id,
                "description": self.description,
-          #   "creator": self.creator,
                "name": self.name,
                "category": self.category,
                "date": self.date,
                "time": self.time,
                "city": self.city,
                "location": self.location,
-            #  "weather": self.weather,
                "players": self.players,
                "latitude": self.latitude,
                "longitude": self.longitude,

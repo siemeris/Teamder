@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
-// import teamderImg from "/workspace/Teamder/src/front/img/teamderImg.png";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
@@ -13,51 +12,47 @@ export const UserEdit = () => {
   const [gender, setGender] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState(0);
-  const [address, setAddress] = useState("")
-  
-   useEffect(() => {
-    
-     actions.getCurrentUser();
-    
- }, [store.activador])
-const handleSubmit = (e) => {
-  
-  if (name == '') {
-    // let category2 = store.currentActivity.Current_category
-    setName(store.currentUser.Current_name)
-  }
-  if (username == '') {
-    // let category2 = store.currentActivity.Current_category
-    setUsername(store.currentUser.Current_username)
-  }
-  if (lastname == '') {
-    // let category2 = store.currentActivity.Current_category
-    setLastname(store.currentUser.Current_lastname)
-  }
-  if (age == '') {
-    // let category2 = store.currentActivity.Current_category
-    setAge(store.currentUser.Current_age)
-  }
-  if (gender == '') {
-    // let category2 = store.currentActivity.Current_category
-    setGender(store.currentUser.Current_gender)
-  }
-  if (email == '') {
-    // let category2 = store.currentActivity.Current_category
-    setEmail(store.currentUser.Current_email)
-  }
-  if (mobile == 0) {
-    // let category2 = store.currentActivity.Current_category
-    setMobile(store.currentUser.Current_mobile)
-  }
-  if (address == '') {
-    // let category2 = store.currentActivity.Current_category
-    setAddress(store.currentUser.Current_address)
-  }
-  e.preventDefault();
-  e.target.reset();
-}
+  const [address, setAddress] = useState("");
 
+  useEffect(() => {
+    actions.getCurrentUser();
+  }, [store.activador]);
+  const handleSubmit = (e) => {
+    if (name == "") {
+      // let category2 = store.currentActivity.Current_category
+      setName(store.currentUser.Current_name);
+    }
+    if (username == "") {
+      // let category2 = store.currentActivity.Current_category
+      setUsername(store.currentUser.Current_username);
+    }
+    if (lastname == "") {
+      // let category2 = store.currentActivity.Current_category
+      setLastname(store.currentUser.Current_lastname);
+    }
+    if (age == "") {
+      // let category2 = store.currentActivity.Current_category
+      setAge(store.currentUser.Current_age);
+    }
+    if (gender == "") {
+      // let category2 = store.currentActivity.Current_category
+      setGender(store.currentUser.Current_gender);
+    }
+    if (email == "") {
+      // let category2 = store.currentActivity.Current_category
+      setEmail(store.currentUser.Current_email);
+    }
+    if (mobile == 0) {
+      // let category2 = store.currentActivity.Current_category
+      setMobile(store.currentUser.Current_mobile);
+    }
+    if (address == "") {
+      // let category2 = store.currentActivity.Current_category
+      setAddress(store.currentUser.Current_address);
+    }
+    e.preventDefault();
+    e.target.reset();
+  };
   return (
     <div onClick={handleSubmit}>
       <div className="container">
@@ -79,7 +74,6 @@ const handleSubmit = (e) => {
                       ></input>
                     </div>
                   </div>
-
                   <div className="row mb-3">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Lastname</h6>
@@ -93,7 +87,6 @@ const handleSubmit = (e) => {
                       ></input>
                     </div>
                   </div>
-
                   <div className="row mb-3">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Username</h6>
@@ -107,7 +100,6 @@ const handleSubmit = (e) => {
                       ></input>
                     </div>
                   </div>
-                  
                   <div className="row mb-3">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Email</h6>
@@ -144,7 +136,6 @@ const handleSubmit = (e) => {
                         className="form-control"
                         defaultValue={store.currentUser.Current_address}
                         onChange={(e) => setAddress(e.target.value)}
-
                       ></input>
                     </div>
                   </div>
@@ -180,7 +171,6 @@ const handleSubmit = (e) => {
           </div>
         </div>
       </div>
-
       <div className="modal-footer m-auto">
         <button
           type="button"
@@ -195,7 +185,6 @@ const handleSubmit = (e) => {
           onClick={() => {
             actions.editUser({
               email: email,
-              // password: password,
               name: name,
               username: username,
               lastname: lastname,
@@ -204,8 +193,8 @@ const handleSubmit = (e) => {
               gender: gender,
               address: address,
             });
-            store.activador=true
-            actions.getCurrentUser()
+            store.activador = true;
+            actions.getCurrentUser();
           }}
           data-bs-dismiss="modal"
         >
