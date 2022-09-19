@@ -52,6 +52,6 @@ To update with all yours tables you can edit the file app.py and go to the line 
 1. Install the packages: `$ npm install`
 2. Start coding! start the webpack dev server `$ npm run start`
 
-## Publish your website!
+## Heroku deployment:
 
-This boilerplate it's 100% integrated with Herkou, [follow this tutorial](https://start.4geeksacademy.com/backend/deploy-heroku-posgres) and just by pushing your changes to the heroku repository will deploy the website afterwards.
+This project is deployed to heroku: https://teamderweb.herokuapp.com/
