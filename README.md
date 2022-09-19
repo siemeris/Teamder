@@ -1,4 +1,6 @@
-# WebApp boilerplate with React JS and Flask API
+# Teamder Project
+<h2> What is Teamder?</h2>
+<p>Teamder is a Full-stack interactive web application deployed to Heroku, made in order to satisfy the needs of those who are willing to find new teammates. There is a live map and a calendar with the current posted activities and the weather so, once you are signed up to the database, you will be able to invite and join other people to do some outdoor excercise.</p>
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-flask-hello.git)
 
