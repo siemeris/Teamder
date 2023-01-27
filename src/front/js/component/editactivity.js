@@ -17,7 +17,7 @@ export const EditActivity = ({ propTitle, propDate }) => {
 
 
   // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
-  Geocode.setApiKey("AIzaSyCvsNv7d0Qg363J5YZtFiP_E506AdZYTfA");
+  Geocode.setApiKey("AIzaSyAHROmjNODuxDlT1CEnQN-3NnXLW4hsU3Q");
 
   // set response language. Defaults to english.
   Geocode.setLanguage("en");
